@@ -44,7 +44,9 @@ export class FacialRecognitionCommand extends CommandBase {
                                              .addField('Surpise Likelihood', result.faceAnnotations.surpriseLikelihood)
                                              .addField('Under Exposed Likelihood', result.faceAnnotations.underExposedLikelihood)
                                              .addField('Blurred Likelihood', result.faceAnnotations.blurredLikelihood)
-                                             .addField('Headwear Likelihood', result.faceAnnotations.headwearLikelihood));
+                                             .addField('Headwear Likelihood', result.faceAnnotations.headwearLikelihood)
+                                             .setImage(command.arguments[ 0 ].name)
+                                             .setFooter(command.arguments[ 0 ].name));
 
         } else {
 
