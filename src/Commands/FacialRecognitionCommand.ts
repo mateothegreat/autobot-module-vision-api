@@ -1,5 +1,5 @@
-import { Command, CommandBase, CommandParser, DB, Event } from '@autobot/common';
-import { RichEmbed }                                      from "discord.js";
+import { Command, CommandBase, CommandParser, Event } from '@autobot/common';
+import { RichEmbed }                                  from "discord.js";
 
 const vision = require('@google-cloud/vision');
 
@@ -43,10 +43,8 @@ export class FacialRecognitionCommand extends CommandBase {
 
         const [ result ] = await client.faceDetection(command.arguments[ 0 ].name);
 
-        const deleted = await DB.connection.createQueryBuilder().delete().from(HelpBotTag).where('name = :name', { name: command.namedarguments.name }).execute();
-
-        if (deleted.raw.affectedRows > 0) {
-
+        if (result) {
+            
             command.obj.reply(new RichEmbed().setTitle('Facial Recognition Results')
                                              .setDescription(`The tag "${ command.namedarguments.name }" has been deleted!`)
                                              .addField('Joy Likelihood', result.faceAnnotations.joyLikelihood)
@@ -56,7 +54,6 @@ export class FacialRecognitionCommand extends CommandBase {
                                              .addField('Under Exposed Likelihood', result.faceAnnotations.underExposedLikelihood)
                                              .addField('Blurred Likelihood', result.faceAnnotations.blurredLikelihood)
                                              .addField('Headwear Likelihood', result.faceAnnotations.headwearLikelihood)
-            );
 
         } else {
 
