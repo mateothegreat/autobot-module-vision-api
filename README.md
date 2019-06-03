@@ -1,35 +1,28 @@
-# HelpBot for discord
+# google vision api bot for discord
 
-Helpbot manages questions submitted by users.
+Uses google vision api to analyze images and returns the strategy(s).
+
+![screenshot.png](screenshot.png)
 
 ## Installation
 
 Install the node module in your bot project root directory:
+(if you don't have a bot yet see https://autobots.rocks)
 
 ```
-npm install @autobot/module-helpbot
+npm install @autobot/module-vision-api
 ```
 
 Add the following configuration variable to your `.env` file:
 
 ```
-HELPBOT_COMMAND_PREFIX=?
-HELPBOT_ADMIN_ROLE_NAME=<role name i.e.: admin>
-HELPBOT_QUESTIONS_CHANNEL_ID=<some channel id>
+VISION_BOT_COMMAND_PREFIX=?
+VISION_BOT_ADMIN_ROLE=<name of the role with to use this command>
+GOOGLE_APPLICATION_CREDENTIALS=<absolute path to google cloud service account key>
 ```
 
 ## Commands
 
-| Command                                                               | Description                                                       |
-|-----------------------------------------------------------------------|-------------------------------------------------------------------|
-| `?ask <some question> #javascript #java etc`                          | Submits a question with tags.                                     |
-| `?search all`                                                         | Returns all questions.                                            |
-| `?search <terms>`                                                     | Searches all questions.                                           |
-| `?search id=<#>`                                                      | Retrieve a question by id.                                        |
-| `?search status=<new,answered>`                                       | Searches questions by status.                                     |
-| `?answer id=<#>, answer=<insert answer here>`                         | Answers a question, user receives a copy via direct message.      |
-| `?close id=<#>`                                                       | Closes a question ticket.                                         |
-| `?delete id=<#>`                                                      | Delete a question by it's id #.                                   |
-| `?tagadd name=<tag name>,description=<tag description - optional>`    | Creates a new tag.                                                |
-| `?tagdelete name=<tag name>`                                          | Delete a tag by name.                                             |
-| `?comment id=<#>,comment=<insert comment>`                            | Adds a comment, user receives a copy via direct message.          |
+| Command                           | Description                                   |
+|-----------------------------------|-----------------------------------------------|
+| `?face <some url to an image>     | Processes an image against google vision api. |
