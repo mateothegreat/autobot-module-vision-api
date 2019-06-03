@@ -36,8 +36,9 @@ export class FacialRecognitionCommand extends CommandBase {
 
         if (result) {
 
+            console.log(result);
+
             command.obj.reply(new RichEmbed().setTitle('Facial Recognition Results')
-                                             .setDescription(`The tag "${ command.namedarguments.name }" has been deleted!`)
                                              .addField('Joy Likelihood', result.faceAnnotations.joyLikelihood)
                                              .addField('Sorrow Likelihood', result.faceAnnotations.sorrowLikelihood)
                                              .addField('Anger Likelihood', result.faceAnnotations.angerLikelihood)
