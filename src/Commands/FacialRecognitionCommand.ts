@@ -34,18 +34,18 @@ export class FacialRecognitionCommand extends CommandBase {
 
         const [ result ] = await client.faceDetection(command.arguments[ 0 ].name);
 
-        if (result) {
+        if (result.faceAnnotations) {
 
             console.log(result);
 
             command.obj.reply(new RichEmbed().setTitle('Facial Recognition Results')
-                                             .addField('Joy Likelihood', result.faceAnnotations.joyLikelihood)
-                                             .addField('Sorrow Likelihood', result.faceAnnotations.sorrowLikelihood)
-                                             .addField('Anger Likelihood', result.faceAnnotations.angerLikelihood)
-                                             .addField('Surpise Likelihood', result.faceAnnotations.surpriseLikelihood)
-                                             .addField('Under Exposed Likelihood', result.faceAnnotations.underExposedLikelihood)
-                                             .addField('Blurred Likelihood', result.faceAnnotations.blurredLikelihood)
-                                             .addField('Headwear Likelihood', result.faceAnnotations.headwearLikelihood)
+                                             .addField('Joy Likelihood', result.faceAnnotations[ 0 ].joyLikelihood)
+                                             .addField('Sorrow Likelihood', result.faceAnnotations[ 0 ].sorrowLikelihood)
+                                             .addField('Anger Likelihood', result.faceAnnotations[ 0 ].angerLikelihood)
+                                             .addField('Surpise Likelihood', result.faceAnnotations[ 0 ].surpriseLikelihood)
+                                             .addField('Under Exposed Likelihood', result.faceAnnotations[ 0 ].underExposedLikelihood)
+                                             .addField('Blurred Likelihood', result.faceAnnotations[ 0 ].blurredLikelihood)
+                                             .addField('Headwear Likelihood', result.faceAnnotations[ 0 ].headwearLikelihood)
                                              .setImage(command.arguments[ 0 ].name)
                                              .setFooter(command.arguments[ 0 ].name));
 
