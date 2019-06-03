@@ -21,7 +21,7 @@ export class FacialRecognitionCommand extends CommandBase {
             name: `${ process.env.VISION_BOT_COMMAND_PREFIX }face`,
             group: 'help',
             description: 'Deletes a HelpDesk Tag.',
-            requiredEnvVars: [ 'VISION_BOT_COMMAND_PREFIX', 'VISION_BOT_ADMIN_ROLE', 'GCLOUD_SERVICE_ACCOUNT' ],
+            requiredEnvVars: [ 'VISION_BOT_COMMAND_PREFIX', 'VISION_BOT_ADMIN_ROLE', 'GOOGLE_APPLICATION_CREDENTIALS' ],
             roles: [ process.env.VISION_BOT_ADMIN_ROLE ]
 
         });
