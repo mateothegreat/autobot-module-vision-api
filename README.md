@@ -25,4 +25,9 @@ GOOGLE_APPLICATION_CREDENTIALS=<absolute path to google cloud service account ke
 
 | Command                           | Description                                   |
 |-----------------------------------|-----------------------------------------------|
-| `?face <some url to an image>     | Processes an image against google vision api. |
+| `?face <some url to an image>`    | Processes an image against google vision api. |
+
+## See More
+
+* https://autobots.rocks
+* https://docs.autobots.rocks
